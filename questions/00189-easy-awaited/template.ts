@@ -1,6 +1,4 @@
-type MyAwaited<T extends Promise<any> | PromiseLike<any>> = T extends Promise<
-  infer U
->
+type MyAwaited<T extends PromiseLike<any>> = T extends Promise<infer U>
   ? U extends Promise<any>
     ? MyAwaited<U>
     : U
